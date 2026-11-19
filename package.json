@@ -1,10 +1,10 @@
 {
-  "name": "recallcli",
+  "name": "@rohankumar8124/recallcli",
   "version": "1.6.0",
   "bin": {
     "recallcli": "bin/ai.js"
   },
-  "description": "recallcli — cognitive-architecture AI coding agent with stateful LangGraph planner-critic loop, 5-tier memory, causal work graph, local-first routing, GitHub integration, eval harness, and plugin SDK",
+  "description": "recallcli \u2014 cognitive-architecture AI coding agent with stateful LangGraph planner-critic loop, 5-tier memory, causal work graph, local-first routing, GitHub integration, eval harness, and plugin SDK",
   "main": "bin/ai.js",
   "scripts": {
     "test": "node --test test/*.test.js",

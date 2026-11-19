@@ -4,7 +4,7 @@
 
 **A cognitive-architecture-inspired AI coding agent that lives in your terminal.**
 
-[![npm version](https://img.shields.io/npm/v/recallcli.svg)](https://www.npmjs.com/package/recallcli)
+[![npm version](https://img.shields.io/npm/v/@rohankumar8124/recallcli.svg)](https://www.npmjs.com/package/@rohankumar8124/recallcli)
 [![CI](https://github.com/Rohankumar8124/recallcli/actions/workflows/ci.yml/badge.svg)](https://github.com/Rohankumar8124/recallcli/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node >=18](https://img.shields.io/badge/node-%3E%3D18-blue.svg)](#)

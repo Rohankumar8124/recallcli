@@ -44,16 +44,25 @@ function walk(dir) {
 }
 
 const modules = walk(path.join(ROOT, "core"));
+const optionalDeps = new Set(Object.keys(pkg.optionalDependencies || {}));
 let loaded = 0;
+let skipped = 0;
 for (const m of modules) {
     try {
         require(m);
         loaded++;
     } catch (err) {
+        const miss = err && err.code === "MODULE_NOT_FOUND" && /Cannot find module '([^']+)'/.exec(err.message || "");
+        const rootPkg = miss && (miss[1].startsWith("@") ? miss[1].split("/").slice(0, 2).join("/") : miss[1].split("/")[0]);
+        if (rootPkg && optionalDeps.has(rootPkg)) {
+            skipped++;
+            ok(`skip ${path.relative(ROOT, m)} (optional dep ${rootPkg} not installed on this Node)`);
+            continue;
+        }
         fail(`require ${path.relative(ROOT, m)}`, err);
     }
 }
-if (loaded === modules.length) ok(`all ${loaded} core modules require cleanly`);
+if (loaded + skipped === modules.length) ok(`all ${loaded} core modules require cleanly (${skipped} skipped with missing optional deps)`);
 
 // -------------------------------------------------------------------- CLI ---
 console.log("\nCLI");
